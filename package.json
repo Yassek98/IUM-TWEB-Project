@@ -1,0 +1,16 @@
+{
+  "name": "ium-tweb-project",
+  "version": "1.0.0",
+  "description": "Progetto di IUM-TWEB 2024-2025. Samuele Caffo, Veronica Bosso, Yassine Sadek",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
