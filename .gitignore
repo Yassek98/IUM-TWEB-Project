@@ -1,5 +1,6 @@
 data_NONPUSHARE
 node_modules
+csv
 node_modules/.package-lock.json
 node_modules/.bin/mime
 node_modules/.bin/mime.cmd
@@ -633,3 +634,15 @@ node_modules/vary/index.js
 node_modules/vary/LICENSE
 node_modules/vary/package.json
 node_modules/vary/README.md
+csv/actors.csv
+csv/countries.csv
+csv/crew.csv
+csv/genres.csv
+csv/languages.csv
+csv/movies.csv
+csv/posters.csv
+csv/releases.csv
+csv/rotten_tomatoes_reviews.csv
+csv/studios.csv
+csv/the_oscar_awards.csv
+csv/themes.csv
