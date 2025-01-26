@@ -1,11 +1,18 @@
 const mongoose = require('mongoose');
+const csv = require('csv-parser');
+const fs = require('fs');
+const path = require('path');
+const Review = require('../models/reviews');
 
-const url = "mongodb://localhost:27017/MongoTWEB";
+const url = "mongodb://127.0.0.1:27017/MongoTWEB";
 mongoose.Promise = global.Promise;
-connection = mongoose.connect(url, {family:4})
+
+// Connect to MongoDB
+mongoose.connect(url)
     .then(() => {
-        console.log('successfully connected to MongoDB');
+        console.log('Successfully connected to MongoDB');
     })
     .catch((error) => {
-        console.log('failed connection to MongoDB' + JSON.stringify(error));
+        console.log('Failed to connect to MongoDB', error);
     });
+
