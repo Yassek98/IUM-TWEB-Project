@@ -7,5 +7,6 @@
     "java.project.sourcePaths": [
         "solution/backend/springboot_server/filmapp/appfilm/src"
     ],
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

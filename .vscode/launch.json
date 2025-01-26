@@ -29,6 +29,16 @@
             "webRoot": "${workspaceFolder}/solution/backend/express_server",
             "sourceMaps": true,
             "trace": true
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AppfilmApplication<springboot_server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.twebproject.appfilm.AppfilmApplication",
+            "projectName": "springboot_server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
