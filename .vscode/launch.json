@@ -4,7 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "FilmappApplication",
+            "request": "launch",
+            "mainClass": "src.main.java.com.filmtweb.filmapp.FilmappApplication",
+            "projectName": "IUM-TWEB-Project_69fb3d26"
+        },
         {
             "name": "Launch Express_server",
             "request": "launch",
@@ -24,6 +30,5 @@
             "sourceMaps": true,
             "trace": true
         }
-
     ]
 }

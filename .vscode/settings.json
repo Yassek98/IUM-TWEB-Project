@@ -3,5 +3,9 @@
         "*.copilotmd": "vscode.markdown.preview.editor",
         "{hexdiff}:/**/*.*": "hexEditor.hexedit",
         "file:/**/*.csv": "jupyter-data-wrangler"
-    }
+    },
+    "java.project.sourcePaths": [
+        "solution/backend/springboot_server/filmapp/appfilm/src"
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
