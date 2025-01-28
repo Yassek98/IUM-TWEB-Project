@@ -2,6 +2,7 @@ package com.twebproject.appfilm.models.filmcountries;
 
 
 import com.twebproject.appfilm.models.Movie;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -67,4 +68,3 @@ public class FilmCountry {
         this.movie = movie;
     }
 }
-
