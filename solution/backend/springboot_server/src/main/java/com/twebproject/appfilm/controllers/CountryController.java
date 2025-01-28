@@ -12,7 +12,7 @@ import com.twebproject.appfilm.services.FilmCountryService;
  */
 @RestController
 @RequestMapping("/film-countries")
-public class FilmCountryController {
+public class CountryController {
 
     @Autowired
     private FilmCountryService filmCountryService;
