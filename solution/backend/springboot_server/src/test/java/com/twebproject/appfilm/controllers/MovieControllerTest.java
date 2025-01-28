@@ -27,4 +27,10 @@ public class MovieControllerTest {
         mockMvc.perform(get("/movies/search").param("name", "Inception"))
             .andExpect(status().isOk());
     }
+
+    @Test
+    public void testGetPosterById() throws Exception {
+        mockMvc.perform(get("/posters/{id}", 1000096L))
+                .andExpect(status().isOk());
+    }
 }
