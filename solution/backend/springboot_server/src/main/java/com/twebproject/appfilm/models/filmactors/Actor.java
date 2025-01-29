@@ -17,10 +17,10 @@ import jakarta.persistence.Table;
 public class Actor {
 
     @EmbeddedId
-    private ActorId id; // Updated composite key
+    private ActorId id; // Composite key
 
     @ManyToOne
-    @MapsId("id") // Updated field reference
+    @MapsId("id") // Field reference
     @JoinColumn(name = "id", foreignKey = @ForeignKey(name = "fk_filmactor_movie"))
     private Movie movie;
 

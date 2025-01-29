@@ -8,14 +8,43 @@ import jakarta.persistence.Embeddable;
  * Represents the composite key for the Actor entity.
  */
 @Embeddable
-public record ActorId(
-    Long id,               // Updated from filmId
-    String name,           // Updated from actorName
-    String role
-) implements Serializable {
+public class ActorId implements Serializable {
 
-    public ActorId {
-        // Default constructor is provided by the record
+    private Long id; // Film ID
+    private String name; // Actor name
+    private String role; // Actor role
+
+    public ActorId() {}
+
+    public ActorId(Long id, String name, String role) {
+        this.id = id;
+        this.name = name;
+        this.role = role;
+    }
+
+    // Getters and setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override

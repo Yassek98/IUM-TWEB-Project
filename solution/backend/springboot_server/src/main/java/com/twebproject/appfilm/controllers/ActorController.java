@@ -2,29 +2,63 @@ package com.twebproject.appfilm.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.twebproject.appfilm.models.filmactors.Actor;
+import com.twebproject.appfilm.models.filmactors.ActorId;
 import com.twebproject.appfilm.services.ActorService;
 
+import jakarta.persistence.EntityNotFoundException;
+
 /**
- * REST controller for managing film actors.
+ * REST controller for managing actors.
  */
 @RestController
 @RequestMapping("/actors")
 public class ActorController {
 
     @Autowired
-    private ActorService filmActorService;
+    private ActorService actorService;
 
     /**
-     * Retrieves all film actors.
+     * Retrieves all actors.
      *
-     * @return a list of all film actors
+     * @return a list of all actors
      */
     @GetMapping
-    public List<Actor> getAllFilmActors() {
-        return filmActorService.getAllFilmActors();
+    public ResponseEntity<List<Actor>> getAllActors(@RequestParam(value = "limit", required = false) Integer limit) {
+        try {
+            List<Actor> actors = actorService.getAllActors();
+            if (limit != null && limit > 0 && limit < actors.size()) {
+                actors = actors.subList(0, limit);
+            }
+            return ResponseEntity.ok(actors);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(null);
+        }
     }
 
+    /**
+     * Searches for actors by name.
+     *
+     * @param name the name to search for
+     * @return a list of actors with names containing the specified string
+     */
+    @GetMapping("/search")
+    public List<Actor> searchActors(@RequestParam String name) {
+        return actorService.searchActors(name);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Actor> getActorById(@PathVariable ActorId id) {
+        try {
+            Actor actor = actorService.getActorById(id);
+            return ResponseEntity.ok(actor);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(404).body(null);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(null);
+        }
+    }
 }

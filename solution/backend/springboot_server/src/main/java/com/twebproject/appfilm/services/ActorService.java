@@ -1,51 +1,74 @@
 package com.twebproject.appfilm.services;
 
 import java.util.List;
-
+import java.util.Optional;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 import com.twebproject.appfilm.models.filmactors.Actor;
 import com.twebproject.appfilm.models.filmactors.ActorId;
 import com.twebproject.appfilm.repositories.ActorRepository;
 
 /**
- * Service class for managing film actors.
+ * Service class for managing actors.
  */
 @Service
 public class ActorService {
 
     @Autowired
-    private ActorRepository filmActorRepo;
+    private ActorRepository actorRepo;
 
     /**
-     * Retrieves all film actors.
+     * Retrieves all actors.
      *
-     * @return a list of all film actors
+     * @return a list of all actors
      */
-    public List<Actor> getAllFilmActors() {
-        return filmActorRepo.findAll();
+    @Transactional(readOnly = true)
+    public List<Actor> getAllActors() {
+        try {
+            return actorRepo.findAll();
+        } catch (Exception e) {
+            // Log the error and handle it appropriately
+            throw new RuntimeException("Error retrieving actors", e);
+        }
     }
 
     /**
-     * Searches for film actors by actor name.
+     * Searches for actors by name.
      *
-     * @param name the actor name to search for
-     * @return a list of film actors with names containing the specified string
+     * @param name the name to search for
+     * @return a list of actors with names containing the specified string
      */
-    public List<Actor> searchFilmActors(String name) {
-        return filmActorRepo.findByIdName(name);
+    public List<Actor> searchActors(String name) {
+        return actorRepo.findByIdName(name);
     }
 
     /**
-     * Retrieves a film actor by film ID, actor name, and role.
+     * Retrieves an actor by film ID, actor name, and role.
      *
      * @param id the film ID
      * @param name the actor name
      * @param role the role
-     * @return the film actor with the specified film ID, actor name, and role, or null if not found
+     * @return the actor with the specified film ID, actor name, and role, or null if not found
      */
-    public Actor getFilmActor(Long id, String name, String role) {
-        return filmActorRepo.findById(new ActorId(id, name, role)).orElse(null);
+    public Actor getActor(Long id, String name, String role) {
+        return actorRepo.findById(new ActorId(id, name, role)).orElse(null);
+    }
+
+    /**
+     * Retrieves an actor by ID.
+     *
+     * @param id the actor ID
+     * @return the actor with the specified ID, or throws an exception if not found
+     */
+    @Transactional(readOnly = true)
+    public Actor getActorById(ActorId id) {
+        Optional<Actor> actor = actorRepo.findById(id);
+        if (actor.isPresent()) {
+            return actor.get();
+        } else {
+            throw new EntityNotFoundException("Actor not found with id " + id);
+        }
     }
 }

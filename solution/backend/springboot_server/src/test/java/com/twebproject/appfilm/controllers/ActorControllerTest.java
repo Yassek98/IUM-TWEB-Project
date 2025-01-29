@@ -11,26 +11,20 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class MovieControllerTest {
+public class ActorControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void testGetAllMovies() throws Exception {
-        mockMvc.perform(get("/movies").param("limit", "10"))
+    public void testGetAllActors() throws Exception {
+        mockMvc.perform(get("/actors").param("limit", "10"))
             .andExpect(status().isOk());
     }
 
     @Test
-    public void testSearchMovies() throws Exception {
-        mockMvc.perform(get("/movies/search").param("name", "Inception"))
+    public void testSearchActors() throws Exception {
+        mockMvc.perform(get("/actors/search").param("name", "Margot Robbie"))
             .andExpect(status().isOk());
-    }
-
-    @Test
-    public void testGetPosterById() throws Exception {
-        mockMvc.perform(get("/posters/{id}", 1000096L))
-                .andExpect(status().isOk());
     }
 }
