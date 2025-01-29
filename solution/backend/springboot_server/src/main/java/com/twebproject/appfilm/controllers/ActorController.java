@@ -1,15 +1,18 @@
 package com.twebproject.appfilm.controllers;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.twebproject.appfilm.models.filmactors.Actor;
 import com.twebproject.appfilm.models.filmactors.ActorId;
 import com.twebproject.appfilm.services.ActorService;
-
-import jakarta.persistence.EntityNotFoundException;
 
 /**
  * REST controller for managing actors.
@@ -54,9 +57,10 @@ public class ActorController {
     public ResponseEntity<Actor> getActorById(@PathVariable ActorId id) {
         try {
             Actor actor = actorService.getActorById(id);
+            if (actor == null) {
+                return ResponseEntity.status(404).body(null);
+            }
             return ResponseEntity.ok(actor);
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.status(404).body(null);
         } catch (Exception e) {
             return ResponseEntity.status(500).body(null);
         }

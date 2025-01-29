@@ -2,6 +2,7 @@ package com.twebproject.appfilm.models.filmactors;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 import jakarta.persistence.Embeddable;
 
 /**

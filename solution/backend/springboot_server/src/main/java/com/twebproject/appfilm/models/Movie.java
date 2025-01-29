@@ -1,10 +1,17 @@
 package com.twebproject.appfilm.models;
 
-import jakarta.persistence.*;
 import java.sql.Date;
 import java.util.List;
+
 import com.twebproject.appfilm.models.filmactors.Actor;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 /**
  * Represents a movie entity with various attributes.
@@ -37,7 +44,11 @@ public class Movie {
     @JoinTable(
         name = "movie_actors",
         joinColumns = @JoinColumn(name = "movie_id"),
-        inverseJoinColumns = @JoinColumn(name = "actor_id")
+        inverseJoinColumns = {
+            @JoinColumn(name = "actor_id"),
+            @JoinColumn(name = "actor_name"),
+            @JoinColumn(name = "actor_role")
+        }
     )
     private List<Actor> actors;
 

@@ -2,13 +2,16 @@ package com.twebproject.appfilm.services;
 
 import java.util.List;
 import java.util.Optional;
-import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.twebproject.appfilm.models.filmactors.Actor;
 import com.twebproject.appfilm.models.filmactors.ActorId;
 import com.twebproject.appfilm.repositories.ActorRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 /**
  * Service class for managing actors.
@@ -64,11 +67,17 @@ public class ActorService {
      */
     @Transactional(readOnly = true)
     public Actor getActorById(ActorId id) {
-        Optional<Actor> actor = actorRepo.findById(id);
-        if (actor.isPresent()) {
-            return actor.get();
-        } else {
-            throw new EntityNotFoundException("Actor not found with id " + id);
+        try {
+            Optional<Actor> actor = actorRepo.findById(id);
+            if (actor.isPresent()) {
+                return actor.get();
+            } else {
+                throw new EntityNotFoundException("Actor not found with id " + id);
+            }
+        } catch (EntityNotFoundException e) {
+            // Log the error and handle it appropriately
+            // Return null or a default Actor object to avoid blocking the server
+            return null;
         }
     }
 }

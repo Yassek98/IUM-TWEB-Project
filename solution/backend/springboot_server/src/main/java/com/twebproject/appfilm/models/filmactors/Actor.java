@@ -3,6 +3,7 @@ package com.twebproject.appfilm.models.filmactors;
 import com.twebproject.appfilm.models.Movie;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -19,7 +20,7 @@ public class Actor {
     @EmbeddedId
     private ActorId id; // Composite key
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("id") // Field reference
     @JoinColumn(name = "id", foreignKey = @ForeignKey(name = "fk_filmactor_movie"))
     private Movie movie;
