@@ -1,10 +1,10 @@
 package com.twebproject.appfilm.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import java.sql.Date;
+import java.util.List;
+import com.twebproject.appfilm.models.filmactors.Actor;
+
 
 /**
  * Represents a movie entity with various attributes.
@@ -33,11 +33,19 @@ public class Movie {
 
     private Double rating; // CSV "rating" (optional, so nullable)
 
+    @ManyToMany
+    @JoinTable(
+        name = "movie_actors",
+        joinColumns = @JoinColumn(name = "movie_id"),
+        inverseJoinColumns = @JoinColumn(name = "actor_id")
+    )
+    private List<Actor> actors;
+
     public Movie() {
         // Default constructor
     }
 
-    public Movie(Long id, String name, Date date, String tagline, String description, Double minute, Double rating) {
+    public Movie(Long id, String name, Date date, String tagline, String description, Double minute, Double rating, List<Actor> actors) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -45,6 +53,7 @@ public class Movie {
         this.description = description;
         this.minute = minute;
         this.rating = rating;
+        this.actors = actors;
     }
 
     // Getters and setters
@@ -102,5 +111,13 @@ public class Movie {
 
     public void setRating(Double rating) {
         this.rating = rating;
+    }
+
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
     }
 }
