@@ -22,6 +22,6 @@ public class FilmPosterService {
      * @return the poster associated with the movie, or null if not found
      */
     public FilmPoster getPoster(Long id) {
-        return posterRepo.findById(new FilmPosterId(id)).orElse(null);
+        return posterRepo.findPosterByMovieId(id).orElse(null);
     }
 }

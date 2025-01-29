@@ -6,7 +6,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public record FilmPosterId(
-    Long id
+    Long id,
+    String link
 ) implements Serializable {
 
     /**
@@ -18,15 +19,5 @@ public record FilmPosterId(
         // Default constructor is provided by the record
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof FilmPosterId that)) return false;
-        return Objects.equals(id, that.id);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

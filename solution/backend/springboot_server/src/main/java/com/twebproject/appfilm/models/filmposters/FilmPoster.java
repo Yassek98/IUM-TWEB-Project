@@ -9,56 +9,26 @@ import jakarta.persistence.*;
 public class FilmPoster {
 
     @EmbeddedId
-    private FilmPosterId id; // Updated composite key
+    private FilmPosterId id;
 
     @ManyToOne
-    @MapsId("id") // Updated field reference
+    @MapsId("id")
     @JoinColumn(name = "id", foreignKey = @ForeignKey(name = "fk_filmposter_movie"))
     @JsonIgnore
     private Movie movie;
 
-    @Column(length = 2083)
-    private String link;
+    public FilmPoster() {}
 
-    /**
-     * Default constructor for FilmPoster.
-     */
-    public FilmPoster() {
+    public FilmPoster(Movie movie, String link) {
+        this.movie = movie;
+        this.id = new FilmPosterId(movie.getId(), link);
     }
 
-    /**
-     * Gets the ID of the film poster.
-     *
-     * @return the ID of the film poster
-     */
     public FilmPosterId getId() {
         return id;
     }
 
-    /**
-     * Sets the ID of the film poster.
-     *
-     * @param id the ID to set
-     */
-    public void setId(FilmPosterId id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets the link of the film poster.
-     *
-     * @return the link of the film poster
-     */
     public String getLink() {
-        return link;
-    }
-
-    /**
-     * Sets the link of the film poster.
-     *
-     * @param link the link to set
-     */
-    public void setLink(String link) {
-        this.link = link;
+        return id.link(); 
     }
 }

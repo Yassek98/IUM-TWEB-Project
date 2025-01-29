@@ -3,6 +3,7 @@ package com.twebproject.appfilm.controllers;
 import com.twebproject.appfilm.models.filmposters.FilmPoster;
 import com.twebproject.appfilm.services.FilmPosterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,8 @@ public class PosterController {
      * @return the poster associated with the movie, or null if not found
      */
     @GetMapping("/{id}")
-    public FilmPoster getPoster(@PathVariable Long id) {
-        return posterService.getPoster(id);
+    public ResponseEntity<String> getPoster(@PathVariable Long id) {
+        FilmPoster poster = posterService.getPoster(id);
+        return (poster != null) ? ResponseEntity.ok(poster.getLink()) : ResponseEntity.notFound().build();
     }
 }
