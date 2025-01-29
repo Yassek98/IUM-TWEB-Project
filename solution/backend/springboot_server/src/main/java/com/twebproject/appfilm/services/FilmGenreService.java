@@ -1,15 +1,14 @@
 package com.twebproject.appfilm.services;
 
 import com.twebproject.appfilm.models.filmgenres.FilmGenre;
-import com.twebproject.appfilm.models.filmgenres.FilmGenreId;
-import com.twebproject.appfilm.models.filmposters.FilmPoster;
-import com.twebproject.appfilm.models.filmposters.FilmPosterId;
 import com.twebproject.appfilm.repositories.FilmGenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+/**
+ * Service class for handling FilmGenres-related operations.
+ */
 @Service
 public class FilmGenreService {
 

@@ -1,17 +1,13 @@
 package com.twebproject.appfilm.repositories;
 
-import com.twebproject.appfilm.models.Movie;
 import com.twebproject.appfilm.models.filmgenres.FilmGenre;
 import com.twebproject.appfilm.models.filmgenres.FilmGenreId;
-import com.twebproject.appfilm.models.filmposters.FilmPoster;
-import com.twebproject.appfilm.models.filmposters.FilmPosterId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Repository interface for accessing FilmPoster entities from the database.
