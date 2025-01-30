@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.twebproject.appfilm.models.filmcountries.FilmCountry;
+import com.twebproject.appfilm.models.FilmCountry;
 import com.twebproject.appfilm.services.FilmCountryService;
 
 /**
@@ -34,8 +34,8 @@ public class CountryController {
      * @param country the name of the country
      * @return the film country with the specified composite ID, or null if not found
      */
-    @GetMapping("/{filmId}/{country}")
-    public FilmCountry getFilmCountry(@PathVariable Long filmId, @PathVariable String country) {
-        return filmCountryService.getFilmCountry(filmId, country);
+    @GetMapping("/{filmId}")
+    public FilmCountry getFilmCountry(@PathVariable Integer filmId) {
+        return filmCountryService.getFilmCountry(filmId);
     }
 }

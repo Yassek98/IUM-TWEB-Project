@@ -18,23 +18,13 @@ public class MovieController {
     private MovieService movieService;
 
     /**
-     * Retrieves all movies.
-     *
-     * @return a list of all movies
-     */
-    @GetMapping
-    public List<Movie> getAllMovies() {
-        return movieService.getAllMovies();
-    }
-
-    /**
      * Retrieves a movie by its ID.
      *
      * @param id the ID of the movie
      * @return the movie with the specified ID, or null if not found
      */
     @GetMapping("/{id}")
-    public Movie getMovie(@PathVariable Long id) {
+    public Movie getMovie(@PathVariable Integer id) {
         return movieService.getMovie(id);
     }
 

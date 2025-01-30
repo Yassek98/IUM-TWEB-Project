@@ -2,11 +2,14 @@ package com.twebproject.appfilm.models;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
-import com.twebproject.appfilm.models.filmactors.Actor;
+import com.twebproject.appfilm.models.Actor;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -21,8 +24,9 @@ import jakarta.persistence.Table;
 public class Movie {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private Long id; // CSV "id"
+    private Integer id; // CSV "id"
 
     @Column(nullable = false, length = 255)
     private String name; // CSV "name"
@@ -40,23 +44,14 @@ public class Movie {
 
     private Double rating; // CSV "rating" (optional, so nullable)
 
-    @ManyToMany
-    @JoinTable(
-        name = "movie_actors",
-        joinColumns = @JoinColumn(name = "movie_id"),
-        inverseJoinColumns = {
-            @JoinColumn(name = "actor_id"),
-            @JoinColumn(name = "actor_name"),
-            @JoinColumn(name = "actor_role")
-        }
-    )
-    private List<Actor> actors;
+    @ManyToMany(mappedBy = "movies")
+    private Set<Actor> actors;
 
     public Movie() {
         // Default constructor
     }
 
-    public Movie(Long id, String name, Date date, String tagline, String description, Double minute, Double rating, List<Actor> actors) {
+    public Movie(Integer id, String name, Date date, String tagline, String description, Double minute, Double rating, Set<Actor> actors) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -68,11 +63,11 @@ public class Movie {
     }
 
     // Getters and setters
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -124,11 +119,11 @@ public class Movie {
         this.rating = rating;
     }
 
-    public List<Actor> getActors() {
+    public Set<Actor> getActors() {
         return actors;
     }
 
-    public void setActors(List<Actor> actors) {
+    public void setActors(Set<Actor> actors) {
         this.actors = actors;
     }
 }

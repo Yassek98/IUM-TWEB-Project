@@ -1,6 +1,6 @@
 package com.twebproject.appfilm.services;
 
-import com.twebproject.appfilm.models.filmgenres.FilmGenre;
+import com.twebproject.appfilm.models.FilmGenre;
 import com.twebproject.appfilm.repositories.FilmGenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class FilmGenreService {
      * @param id the ID of the movie
      * @return a list of genres associated with the movie
      */
-    public List<FilmGenre> getAllGenreOfFIlm(Long id) {
+    public List<FilmGenre> getAllGenreOfFIlm(Integer id) {
         return genreRepo.findAllGenresOfFilm(id);
     }
 
