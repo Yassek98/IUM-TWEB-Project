@@ -30,7 +30,7 @@ public class MovieService {
      * @param id the ID of the movie
      * @return the movie with the specified ID, or null if not found
      */
-    public Movie getMovie(Long id) {
+    public Movie getMovie(Integer id) {
         return movieRepo.findById(id).orElse(null);
     }
 

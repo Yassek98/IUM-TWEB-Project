@@ -3,10 +3,8 @@ package com.twebproject.appfilm.services;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.twebproject.appfilm.models.filmcountries.FilmCountry;
+import com.twebproject.appfilm.models.FilmCountry;
 import com.twebproject.appfilm.repositories.FilmCountryRepository;
-import com.twebproject.appfilm.models.filmcountries.FilmCountryId;
-
 /**
  * Service class for managing film countries.
  */
@@ -32,7 +30,7 @@ public class FilmCountryService {
      * @return a list of film countries with names containing the specified string
      */
     public List<FilmCountry> searchFilmCountries(String country) {
-        return filmCountryRepo.findByIdCountry(country);
+        return filmCountryRepo.findByCountry(country);
     }
 
     /**
@@ -42,7 +40,7 @@ public class FilmCountryService {
      * @param country the country name
      * @return the film country with the specified film ID and country name, or null if not found
      */
-    public FilmCountry getFilmCountry(Long filmId, String country) {
-        return filmCountryRepo.findById(new FilmCountryId(filmId, country)).orElse(null);
+    public FilmCountry getFilmCountry(Integer filmId) {
+        return filmCountryRepo.findById(filmId).orElse(null);
     }
 }

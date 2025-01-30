@@ -12,7 +12,7 @@ import com.twebproject.appfilm.models.Movie;
  * Repository interface for accessing Movie entities from the database.
  */
 @Repository
-public interface MovieRepository extends JpaRepository<Movie, Long> {
+public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     /**
      * Finds movies by name containing the specified string, ignoring case.
@@ -31,5 +31,5 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
      */
     @Override
     @Query("SELECT m FROM Movie m WHERE m.id = :id")
-    Optional<Movie> findById(Long id);
+    Optional<Movie> findById(Integer id);
 }

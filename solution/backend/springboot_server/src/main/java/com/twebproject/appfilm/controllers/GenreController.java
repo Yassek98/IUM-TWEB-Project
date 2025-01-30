@@ -1,6 +1,6 @@
 package com.twebproject.appfilm.controllers;
 
-import com.twebproject.appfilm.models.filmgenres.FilmGenre;
+import com.twebproject.appfilm.models.FilmGenre;
 import com.twebproject.appfilm.services.FilmGenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ public class GenreController {
      * @return a list of genres associated with the movie
      */
     @GetMapping("/{id}")
-    public List<String> getGenresOfFilm(@PathVariable Long id) {
+    public List<String> getGenresOfFilm(@PathVariable Integer id) {
         return genreService.getAllGenreOfFIlm(id)
                 .stream()
                 .map(FilmGenre::getGenre)

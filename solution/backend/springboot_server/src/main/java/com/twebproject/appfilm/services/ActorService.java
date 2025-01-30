@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.twebproject.appfilm.models.filmactors.Actor;
-import com.twebproject.appfilm.models.filmactors.ActorId;
+import com.twebproject.appfilm.models.Actor;
 import com.twebproject.appfilm.repositories.ActorRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -23,7 +22,7 @@ public class ActorService {
     private ActorRepository actorRepo;
 
     /**
-     * Retrieves all actors.
+     * Retrieves all actors. da non usare. qui solo per bellezza
      *
      * @return a list of all actors
      */
@@ -44,7 +43,7 @@ public class ActorService {
      * @return a list of actors with names containing the specified string
      */
     public List<Actor> searchActors(String name) {
-        return actorRepo.findByIdName(name);
+        return actorRepo.findByNameIgnoreCaseContaining(name);
     }
 
     /**
@@ -55,8 +54,8 @@ public class ActorService {
      * @param role the role
      * @return the actor with the specified film ID, actor name, and role, or null if not found
      */
-    public Actor getActor(Long id, String name, String role) {
-        return actorRepo.findById(new ActorId(id, name, role)).orElse(null);
+    public Actor getActor(Integer id, String name, String role) {
+        return actorRepo.findById(id).orElse(null);
     }
 
     /**
@@ -66,7 +65,7 @@ public class ActorService {
      * @return the actor with the specified ID, or throws an exception if not found
      */
     @Transactional(readOnly = true)
-    public Actor getActorById(ActorId id) {
+    public Actor getActorById(Integer id) {
         try {
             Optional<Actor> actor = actorRepo.findById(id);
             if (actor.isPresent()) {

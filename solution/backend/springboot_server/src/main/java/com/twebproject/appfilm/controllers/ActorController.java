@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.twebproject.appfilm.models.filmactors.Actor;
-import com.twebproject.appfilm.models.filmactors.ActorId;
+import com.twebproject.appfilm.models.Actor;
+import com.twebproject.appfilm.repositories.ActorRepository;
 import com.twebproject.appfilm.services.ActorService;
 
 /**
@@ -24,23 +24,8 @@ public class ActorController {
     @Autowired
     private ActorService actorService;
 
-    /**
-     * Retrieves all actors.
-     *
-     * @return a list of all actors
-     */
-    @GetMapping
-    public ResponseEntity<List<Actor>> getAllActors(@RequestParam(value = "limit", required = false) Integer limit) {
-        try {
-            List<Actor> actors = actorService.getAllActors();
-            if (limit != null && limit > 0 && limit < actors.size()) {
-                actors = actors.subList(0, limit);
-            }
-            return ResponseEntity.ok(actors);
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(null);
-        }
-    }
+    @Autowired
+    private ActorRepository actorRepository;
 
     /**
      * Searches for actors by name.
@@ -50,11 +35,11 @@ public class ActorController {
      */
     @GetMapping("/search")
     public List<Actor> searchActors(@RequestParam String name) {
-        return actorService.searchActors(name);
+        return actorRepository.findByNameIgnoreCaseContainingNative(name);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Actor> getActorById(@PathVariable ActorId id) {
+    public ResponseEntity<Actor> getActorById(@PathVariable Integer id) {
         try {
             Actor actor = actorService.getActorById(id);
             if (actor == null) {

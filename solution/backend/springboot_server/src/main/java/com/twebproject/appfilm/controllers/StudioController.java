@@ -1,7 +1,7 @@
 package com.twebproject.appfilm.controllers;
 
 import com.twebproject.appfilm.services.FilmStudioService;
-import com.twebproject.appfilm.models.filmstudios.FilmStudio;
+import com.twebproject.appfilm.models.FilmStudio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +23,8 @@ public class StudioController {
      * @return a list of studio names
      */
     @GetMapping("/{id}")
-    public List<String> getStudiosOfFilm(@PathVariable Long id) {
-        return studioService.getAllStudiosOfFilm(id)
+    public List<String> getStudiosOfFilm(@PathVariable Integer id) {
+        return studioService.getStudioById(id)
                 .stream()
                 .map(FilmStudio::getStudio)
                 .toList();

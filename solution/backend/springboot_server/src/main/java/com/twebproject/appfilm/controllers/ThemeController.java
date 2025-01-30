@@ -1,4 +1,4 @@
-package com.twebproject.appfilm.controllers;
+/*package com.twebproject.appfilm.controllers;
 
 
 import com.twebproject.appfilm.models.filmthemes.FilmTheme;
@@ -17,12 +17,12 @@ public class ThemeController {
     @Autowired
     private FilmThemeService themeService;
 
-    /**
+    
      * Retrieves themes by the movie ID.
      *
      * @param id the ID of the movie
      * @return a list of themes associated with the movie
-     */
+     
     @GetMapping("/{id}")
     public List<String> getThemesOfFilm(@PathVariable Long id) {
         return themeService.getAllThemesOfFilm(id)
@@ -31,3 +31,4 @@ public class ThemeController {
                 .toList();
     }
 }
+*/

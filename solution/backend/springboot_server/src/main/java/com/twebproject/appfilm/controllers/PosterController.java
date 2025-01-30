@@ -1,6 +1,6 @@
 package com.twebproject.appfilm.controllers;
 
-import com.twebproject.appfilm.models.filmposters.FilmPoster;
+import com.twebproject.appfilm.models.FilmPoster;
 import com.twebproject.appfilm.services.FilmPosterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +22,7 @@ public class PosterController {
      * @return the poster associated with the movie, or null if not found
      */
     @GetMapping("/{id}")
-    public ResponseEntity<String> getPoster(@PathVariable Long id) {
+    public ResponseEntity<String> getPoster(@PathVariable Integer id) {
         FilmPoster poster = posterService.getPoster(id);
         return (poster != null) ? ResponseEntity.ok(poster.getLink()) : ResponseEntity.notFound().build();
     }

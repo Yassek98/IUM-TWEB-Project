@@ -1,7 +1,6 @@
 package com.twebproject.appfilm.services;
 
-import com.twebproject.appfilm.models.filmposters.FilmPoster;
-import com.twebproject.appfilm.models.filmposters.FilmPosterId;
+import com.twebproject.appfilm.models.FilmPoster;
 import com.twebproject.appfilm.repositories.FilmPosterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,7 @@ public class FilmPosterService {
      * @param id the ID of the movie associated with the poster
      * @return the poster associated with the movie, or null if not found
      */
-    public FilmPoster getPoster(Long id) {
-        return posterRepo.findPosterByMovieId(id).orElse(null);
+    public FilmPoster getPoster(Integer id) {
+        return posterRepo.findById(id).orElse(null);
     }
 }
