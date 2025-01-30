@@ -22,7 +22,7 @@ public class ActorService {
     private ActorRepository actorRepo;
 
     /**
-     * Retrieves all actors.
+     * Retrieves all actors. da non usare. qui solo per bellezza
      *
      * @return a list of all actors
      */
@@ -43,7 +43,7 @@ public class ActorService {
      * @return a list of actors with names containing the specified string
      */
     public List<Actor> searchActors(String name) {
-        return actorRepo.findByName(name);
+        return actorRepo.findByNameIgnoreCaseContaining(name);
     }
 
     /**

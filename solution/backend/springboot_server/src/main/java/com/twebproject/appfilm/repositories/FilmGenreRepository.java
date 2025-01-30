@@ -19,6 +19,6 @@ public interface FilmGenreRepository extends JpaRepository<FilmGenre, Integer> {
      * @param filmId the ID of the film
      * @return a list of FilmGenre entities associated with the specified film ID
      */
-    @Query("SELECT fg FROM FilmGenre fg WHERE fg.film.id = ?1")
+    @Query("SELECT fg FROM FilmGenre fg WHERE fg.movie.id = ?1")
     List<FilmGenre> findAllGenresOfFilm(Integer filmId);
 }
