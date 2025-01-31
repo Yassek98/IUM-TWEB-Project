@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Room - {{movieId}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/static/css/chat.css">
+</head>
+<body>
+<div class="chat-wrapper">
+    <div class="chat-username mdl-shadow--2dp">
+        <h3>Enter your name</h3>
+        <input type="text" class="username-input" placeholder="Username" />
+        <button class="chat-open mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">Start Chat</button>
+    </div>
+
+    <div class="chat-box mdl-shadow--2dp" style="display: none;">
+        <div class="chat-header mdl-color--accent">
+            <span class="chat-header-title">Room ID: {{movieId}}</span>
+            <i class="material-icons chat-close">close</i>
+        </div>
+        <div class="chat-body"></div>
+        <div class="chat-input">
+            <textarea placeholder="Type a message..."></textarea>
+        </div>
+        <div class="chat-toolbar">
+            <button class="send mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Send</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/static/js/chat.js"></script>
+</body>
+</html>
