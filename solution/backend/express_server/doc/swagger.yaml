@@ -62,7 +62,8 @@ components:
           type: string
           description: Score given in the review.
         review_date:
-          type: date
+          type: string
+          format: date
           description: Date of the review.
         review_content:
           type: string

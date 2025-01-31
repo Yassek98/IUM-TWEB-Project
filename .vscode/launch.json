@@ -5,13 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "FilmappApplication",
-            "request": "launch",
-            "mainClass": "src.main.java.com.filmtweb.filmapp.FilmappApplication",
-            "projectName": "IUM-TWEB-Project_69fb3d26"
-        },
-        {
             "name": "Launch Express_server",
             "request": "launch",
             "program": "${workspaceFolder}/solution/backend/express_server/bin/www",
@@ -22,7 +15,7 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "Launch Chrome with Debugger",
+            "name": "Launch Chrome 3000",
             "request": "launch",
             "type": "chrome",
             "url": "http://localhost:3000",
@@ -32,13 +25,20 @@
         },
         {
             "type": "java",
-            "name": "Spring Boot-AppfilmApplication<springboot_server>",
+            "name": "Launch SpringBoot_server",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
             "mainClass": "com.twebproject.appfilm.AppfilmApplication",
             "projectName": "springboot_server",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "vmArgs": "-Dspring-boot.run.profiles=dev",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open Chrome 8080",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

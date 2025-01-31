@@ -6,7 +6,7 @@ var logger = require('morgan');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
-const swaggerDocument = YAML.load('./doc/swagger.yaml');
+const swaggerDocument = YAML.load('solution/backend/express_server/doc/swagger.yaml');
 
 require('./database/database');
 
