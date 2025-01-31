@@ -27,7 +27,7 @@
             "name": "Open Chrome 4001",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:4001",
+            "url": "http://localhost:4000",
             "webRoot": "${workspaceFolder}/solution/frontend/client_server",
             "sourceMaps": true,
             "trace": true
