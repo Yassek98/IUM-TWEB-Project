@@ -14,13 +14,6 @@ import com.twebproject.appfilm.models.Actor;
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Integer> {
 
-    /**
-     * Finds Actor entities by name containing the specified string, Case sensitive.
-     *
-     * @param name the string to search for in actor names
-     * @return a list of Actor entities with names containing the specified string
-     */
-    List<Actor> findByName(String name);
 
     /**
      * Finds Actor entities by name containing the specified string, ignoring case.
