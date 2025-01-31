@@ -1,32 +1,73 @@
 #!/usr/bin/env node
 
+/**
+ * Module dependencies.
+ */
 const http = require('http');
 const app = require('../app');
-const { Server } = require('socket.io');
-
-const PORT = process.env.PORT || 4000;
-
 const server = http.createServer(app);
-const io = new Server(server);
+const socketIo = require('../socket.io/socket-io');
 
-io.on('connection', (socket) => {
-  console.log('User connected', socket.id);
+/**
+ * Normalize a port into a number, string, or false.
+ * @param {string|number} val - The port number or string to normalize.
+ * @returns {number|string|false} - The normalized port number, string, or false if invalid.
+ */
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+  if (isNaN(port)) {
+    return val; // named pipe
+  }
+  if (port >= 0) {
+    return port; // port number
+  }
+  return false;
+}
 
-  socket.on('joinRoom', (room) => {
-    socket.join(room);
-    console.log(`${socket.id} joined room ${room}`);
-  });
+/**
+ * Event listener for HTTP server "error" event.
+ * @param {Object} error - The error object thrown by the server.
+ */
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
 
-  socket.on('chatMessage', (data) => {
-    // data = { room, user, message }
-    io.to(data.room).emit('chatMessage', data);
-  });
+  const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+  switch (error.code) {
+    case 'EACCES':
+      console.error(`${bind} requires elevated privileges`);
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(`${bind} is already in use`);
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
 
-  socket.on('disconnect', () => {
-    console.log('User disconnected', socket.id);
-  });
-});
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+function onListening() {
+  const addr = server.address();
+  const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+  console.log('Listening on ' + bind);
+}
 
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+/**
+ * Creates and configures the HTTP server and Socket.io.
+ */
+const io = require('socket.io')(server);
+socketIo.init(server); // Initialize Socket.io with the server
+
+// Define the port to listen on
+const port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+// Start listening on the specified port
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
