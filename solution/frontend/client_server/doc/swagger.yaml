@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  title: Movie Reviews API
+  version: 1.0.0
+  description: This API allows clients to interact with our movie reviews database.
+servers:
+  - url: http://localhost:3000
+    description: Development server
+paths:
+  /reviews/{movieTitle}:
+    get:
+      summary: Retrieve reviews by movie title
+      description: Returns a list of reviews for a given movie title.
+      parameters:
+        - in: path
+          name: movieTitle
+          required: true
+          schema:
+            type: string
+          description: The movie title to get reviews for.
+      responses:
+        200:
+          description: A list of reviews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+        404:
+          description: No reviews found
+        500:
+          description: Server error
+components:
+  schemas:
+    Review:
+      type: object
+      required:
+        - movie_title
+        - review_date
+        - publisher_name
+      properties:
+        rotten_tomatoes_link:
+          type: string
+          description: Link to the Rotten Tomatoes page.
+        movie_title:
+          type: string
+          description: Title of the movie.
+        critic_name:
+          type: string
+          description: Name of the critic.
+        top_critic:
+          type: boolean
+          description: Whether the critic is a top critic.
+        publisher_name:
+          type: string
+          description: Name of the publisher.
+        review_type:
+          type: string
+          description: Type of the review.
+        review_score:
+          type: string
+          description: Score given in the review.
+        review_date:
+          type: string
+          format: date
+          description: Date of the review.
+        review_content:
+          type: string
+          description: Content of the review.

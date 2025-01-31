@@ -15,11 +15,20 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "Launch Chrome 3000",
+            "name": "Open Chrome 3000",
             "request": "launch",
             "type": "chrome",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}/solution/backend/express_server",
+            "sourceMaps": true,
+            "trace": true
+        },
+        {
+            "name": "Open Chrome 4001",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:4001",
+            "webRoot": "${workspaceFolder}/solution/frontend/client_server",
             "sourceMaps": true,
             "trace": true
         },
@@ -39,6 +48,16 @@
             "name": "Open Chrome 8080",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Client_Server",
+            "request": "launch",
+            "program": "${workspaceFolder}/solution/frontend/client_server/bin/www",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "console": "integratedTerminal"
         }
     ]
 }

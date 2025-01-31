@@ -1,0 +1,19 @@
+{
+  "name": "client_server",
+  "version": "1.0.0",
+  "description": "Client server for IUM-TWEB-Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "bootstrap": "^5.2.3",
+    "express": "^4.21.2",
+    "express-handlebars": "^6.0.6",
+    "socket.io": "^4.8.1"
+  }
+}
