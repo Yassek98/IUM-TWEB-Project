@@ -67,7 +67,7 @@ const io = require('socket.io')(server);
 socketIo.init(server); // Initialize Socket.io with the server
 
 // Define the port to listen on
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 
 // Start listening on the specified port
