@@ -24,7 +24,7 @@
             "trace": true
         },
         {
-            "name": "Open Chrome 4001",
+            "name": "Open Chrome 4000",
             "request": "launch",
             "type": "chrome",
             "url": "http://localhost:4000",

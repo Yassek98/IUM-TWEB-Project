@@ -1,0 +1,98 @@
+<div class="hero fade-in">
+    <div class="container text-center">
+        <h1 class="display-3 mb-4 text-white">Discover Your Next Favorite Movie</h1>
+        <p class="lead text-white mb-5">Explore thousands of movies, share your thoughts, and connect with other movie enthusiasts</p>
+        
+        <form action="/search" method="GET" class="col-md-8 mx-auto search-form">
+            <div class="input-group input-group-lg">
+                <input type="search" name="query" class="form-control" placeholder="Search movies, actors, or directors..." required aria-label="Search movies">
+                <button class="btn btn-primary px-4" type="submit">
+                    <i class="bi bi-search me-2"></i>
+                    Search
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <h2 class="display-6 mb-4">Featured Movies</h2>
+        </div>
+        <div class="col-md-6 text-md-end">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-primary active">All</button>
+                <button type="button" class="btn btn-outline-primary">Action</button>
+                <button type="button" class="btn btn-outline-primary">Drama</button>
+                <button type="button" class="btn btn-outline-primary">Comedy</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        {{#each featuredMovies}}
+        <div class="col-md-4 fade-in">
+            <div class="card h-100">
+                <div class="movie-poster">
+                    <img src="{{this.poster}}" class="card-img-top" alt="{{this.title}}">
+                    <span class="rating-badge">
+                        <i class="bi bi-star-fill me-1"></i>
+                        {{this.rating}}
+                    </span>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text text-muted">
+                        <i class="bi bi-calendar3 me-2"></i>2024
+                        <span class="mx-2">•</span>
+                        <i class="bi bi-clock me-2"></i>120 min
+                    </p>
+                    <a href="/movie/{{this.id}}" class="btn btn-primary w-100">View Details</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="row mt-5 g-4">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <i class="bi bi-star-fill me-2"></i>
+                        Top Rated
+                    </h3>
+                    <p class="card-text">Discover the highest-rated movies of all time</p>
+                    <a href="/stats" class="btn btn-light">Explore Top Rated</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <i class="bi bi-trophy-fill me-2"></i>
+                        Award Winners
+                    </h3>
+                    <p class="card-text">Browse Oscar-winning films and performances</p>
+                    <a href="/stats" class="btn btn-light">View Winners</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <i class="bi bi-chat-dots-fill me-2"></i>
+                        Most Discussed
+                    </h3>
+                    <p class="card-text">Join the conversation on the most talked-about movies</p>
+                    <a href="/stats" class="btn btn-light">Join Discussion</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

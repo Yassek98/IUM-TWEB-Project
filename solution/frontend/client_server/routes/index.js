@@ -4,7 +4,12 @@ var axios = require('axios'); // Assicurati di avere axios installato per le chi
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  const featuredMovies = [
+    { id: 1, title: 'Inception', poster: 'images/image2.jpg', rating: 8.8 },
+    { id: 2, title: 'The Dark Knight', poster: 'images/image 3.jpg', rating: 9.0 },
+    { id: 3, title: 'Interstellar', poster: 'images/image 4.jpg', rating: 8.6 }
+  ];
+  res.render('pages/home', { title: 'Movie Platform', featuredMovies });
 });
 
 // Esempio routing verso Spring Boot
