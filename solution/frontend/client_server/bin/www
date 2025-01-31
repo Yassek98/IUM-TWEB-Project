@@ -3,8 +3,12 @@
 const http = require('http');
 const app = require('../app');
 const { Server } = require('socket.io');
+const morgan = require('morgan');
 
 const PORT = process.env.PORT || 4000;
+
+// Add morgan middleware for logging
+app.use(morgan('dev'));
 
 const server = http.createServer(app);
 const io = new Server(server);

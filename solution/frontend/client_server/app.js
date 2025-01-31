@@ -7,11 +7,15 @@ var indexRouter = require('./routes/index');
 
 const app = express();
 
-app.engine('hbs', exphbs.engine({ extname: '.hbs' }));
+app.engine('hbs', exphbs.engine({ 
+    extname: '.hbs',
+    partialsDir: path.join(__dirname, 'views', 'partials'),
+    layoutsDir: path.join(__dirname, 'views', 'layouts')
+}));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 app.use('/', indexRouter);
@@ -22,6 +26,6 @@ app.use(function(err, req, res, next) {
     res.locals.error = req.app.get('env') === 'development' ? err : {};
   
     res.render('error');
-  });
+});
 
 module.exports = app;

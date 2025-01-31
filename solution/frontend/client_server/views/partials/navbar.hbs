@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <i class="bi bi-film me-2"></i>
+            Movie Platform
+        </a>
+        
+        <button 
+            class="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        <i class="bi bi-house-fill me-1"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/stats">
+                        <i class="bi bi-graph-up me-1"></i>
+                        Statistics
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/community">
+                        <i class="bi bi-people-fill me-1"></i>
+                        Community
+                    </a>
+                </li>
+            </ul>
+            
+            <form class="d-flex" action="/search" method="GET">
+                <div class="input-group">
+                    <input 
+                        class="form-control" 
+                        type="search" 
+                        name="query" 
+                        placeholder="Search movies..." 
+                        aria-label="Search"
+                        required
+                    >
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+<div style="margin-top: 76px;"></div>
