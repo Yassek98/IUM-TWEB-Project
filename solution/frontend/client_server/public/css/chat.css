@@ -8,16 +8,20 @@
     bottom: 10px;
     right: 10px;
     z-index: 999;
+    width: 100%;
+    max-width: 400px;
 }
 .chat-header {
     color: #fff;
-    background-color: #a12e12;
-    height: 40px;
+    background-color: #343a40;
+    height: 50px;
     text-align: left;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 .chat-header i {
     cursor: pointer;
@@ -26,9 +30,9 @@
     display: none;
     bottom: 0;
     right: 0;
-    background-color: #f6f6f6;
-    width: 400px;
+    background-color: #f8f9fa;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .chat-body {
     overflow-y: scroll;
@@ -39,6 +43,7 @@
     .chat-wrapper {
         bottom: 0;
         right: 0;
+        width: 100%;
     }
     .chat-body {
         width: 100%;
@@ -74,7 +79,7 @@
     font-weight: bold;
 }
 .chat-message {
-    background-color: #fff;
+    background-color: #e9ecef;
     padding: 8px 12px;
     border-radius: 8px;
     word-wrap: break-word;
@@ -95,25 +100,32 @@
     border: none;
     height: 50px;
     resize: none;
+    border-radius: 8px;
 }
 .chat-toolbar {
     text-align: right;
     background-color: #fff;
+    padding: 10px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 .chat-username {
     position: fixed;
     bottom: 100px;
     right: 10px;
-    background-color: #f6f6f6;
+    background-color: #f8f9fa;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 999;
 }
 .chat-username input {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
+    border-radius: 8px;
 }
 .chat-username button {
     width: 100%;
+    border-radius: 8px;
 }

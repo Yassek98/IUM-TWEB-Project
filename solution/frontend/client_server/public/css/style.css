@@ -57,13 +57,13 @@
 }
 
 .navbar .form-control {
-    background-color: #343a40;
+    background-color: #ffffff;
     border: none;
     color: #fff;
 }
 
 .navbar .form-control:focus {
-    background-color: #343a40;
+    background-color: #ffffff;
     color: #fff;
     box-shadow: none;
 }
@@ -99,13 +99,13 @@
 }
 
 .footer .input-group .form-control {
-    background-color: #343a40;
+    background-color: #ffffff;
     border: none;
     color: #fff;
 }
 
 .footer .input-group .form-control:focus {
-    background-color: #343a40;
+    background-color: #ffffff;
     color: #fff;
     box-shadow: none;
 }

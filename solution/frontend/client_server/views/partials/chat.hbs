@@ -10,23 +10,23 @@
 </head>
 <body>
 <div class="chat-wrapper">
-    <div class="chat-username mdl-shadow--2dp">
-        <h3>Enter your name</h3>
-        <input type="text" class="username-input" placeholder="Username" />
-        <button class="chat-open mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">Start Chat</button>
+    <div class="chat-username mdl-shadow--2dp p-3 bg-light rounded">
+        <h3 class="mb-3">Enter your name</h3>
+        <input type="text" class="username-input form-control mb-3" placeholder="Username" />
+        <button class="chat-open btn btn-primary w-100">Start Chat</button>
     </div>
 
     <div class="chat-box mdl-shadow--2dp" style="display: none;">
-        <div class="chat-header mdl-color--accent">
+        <div class="chat-header bg-dark text-white p-2 rounded-top">
             <span class="chat-header-title">Room ID: {{movieId}}</span>
             <i class="material-icons chat-close">close</i>
         </div>
-        <div class="chat-body"></div>
-        <div class="chat-input">
-            <textarea placeholder="Type a message..."></textarea>
+        <div class="chat-body p-3"></div>
+        <div class="chat-input p-3">
+            <textarea class="form-control" placeholder="Type a message..."></textarea>
         </div>
-        <div class="chat-toolbar">
-            <button class="send mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Send</button>
+        <div class="chat-toolbar p-2 bg-light rounded-bottom">
+            <button class="send btn btn-primary w-100">Send</button>
         </div>
     </div>
 </div>
