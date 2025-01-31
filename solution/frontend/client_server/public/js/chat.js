@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const socket = io();
+    if (window.chatInitialized) return;
+    window.chatInitialized = true;
+
+    const socket = io(); // Rimuovi l'URL per connettersi automaticamente alla stessa origine
     let username = "";
     let room = window.location.pathname.split("/").pop();
 
@@ -24,17 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
         chatUsername.style.display = "block";
         usernameInput.value = '';
         usernameInput.focus();
-    });
-
-    document.querySelector(".send").addEventListener("click", function () {
-        sendMessage();
-    });
-
-    document.querySelector(".chat-input textarea").addEventListener("keypress", function (event) {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault();
-            sendMessage();
-        }
     });
 
     function sendMessage() {
@@ -91,6 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
     socket.on("updateUserCount", function(count) {
         const chatHeaderTitle = document.querySelector('.chat-header-title');
         chatHeaderTitle.textContent = `Room ID: ${room} - Connected users: ${count}`;
+    });
+
+    window.addEventListener("beforeunload", function () {
+        socket.emit('leaveRoom');
     });
 
 });

@@ -5,8 +5,7 @@
  */
 const http = require('http');
 const app = require('../app');
-
-const server = http.createServer(app);
+const debug = require('debug')('your-project-name:server');
 const socketIo = require('../socket.io/socket-io');
 const morgan = require('morgan');
 
@@ -57,17 +56,17 @@ function onError(error) {
 function onListening() {
   const addr = server.address();
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-  console.log('Listening on ' + bind);
+  debug('Listening on ' + bind);
 }
 
 /**
  * Creates and configures the HTTP server and Socket.io.
  */
-const io = require('socket.io')(server);
+const server = http.createServer(app);
 socketIo.init(server); // Initialize Socket.io with the server
 
 // Define the port to listen on
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 
 // Start listening on the specified port
