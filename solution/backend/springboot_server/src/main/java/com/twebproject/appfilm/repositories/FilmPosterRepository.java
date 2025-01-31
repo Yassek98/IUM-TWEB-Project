@@ -1,13 +1,13 @@
 package com.twebproject.appfilm.repositories;
 
-import com.twebproject.appfilm.models.FilmPoster;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
+import com.twebproject.appfilm.models.FilmPoster;
+ 
 
 /**
  * Repository interface for accessing FilmPoster entities from the database.
@@ -21,6 +21,7 @@ public interface FilmPosterRepository extends JpaRepository<FilmPoster, Integer>
      * @param id the ID of the film
      * @return the FilmPoster entity associated with the specified film ID
      */
+    @Override
   //  @Query("SELECT p FROM FilmPoster p WHERE p.id = :id")
     Optional<FilmPoster> findById(@Param("id") Integer id);
 }
