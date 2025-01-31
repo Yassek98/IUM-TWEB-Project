@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.twebproject.appfilm.models.Actor;
+import com.twebproject.appfilm.repositories.ActorRepository;
 import com.twebproject.appfilm.services.ActorService;
 
 /**
@@ -23,6 +24,9 @@ public class ActorController {
     @Autowired
     private ActorService actorService;
 
+    @Autowired
+    private ActorRepository actorRepository;
+
     /**
      * Searches for actors by name.
      *
@@ -31,7 +35,7 @@ public class ActorController {
      */
     @GetMapping("/search")
     public List<Actor> searchActors(@RequestParam String name) {
-        return actorService.searchActors(name);
+        return actorRepository.findByNameIgnoreCaseContainingNative(name);
     }
 
     @GetMapping("/{id}")
