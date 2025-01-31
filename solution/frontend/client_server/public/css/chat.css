@@ -1,0 +1,117 @@
+.chat-wrapper * {
+    box-sizing: border-box;
+}
+.chat-wrapper {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 999;
+}
+.chat-header {
+    color: #fff;
+    background-color: #a12e12;
+    height: 40px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+.chat-header i {
+    cursor: pointer;
+}
+.chat-box {
+    display: none;
+    bottom: 0;
+    right: 0;
+    background-color: #f6f6f6;
+    width: 400px;
+    border-radius: 8px;
+}
+.chat-body {
+    overflow-y: scroll;
+    height: 300px;
+    padding: 10px;
+}
+@media screen and (max-width: 479px) {
+    .chat-wrapper {
+        bottom: 0;
+        right: 0;
+    }
+    .chat-body {
+        width: 100%;
+    }
+}
+.chat-avatar {
+    text-align: center;
+    width: 60px;
+    margin-top: 2px;
+}
+.chat-row {
+    padding: 5px 20px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+.chat-row.me {
+    flex-direction: row-reverse;
+}
+.chat-row.target {
+    flex-direction: row;
+}
+.me .chat-content, .target .chat-content {
+    max-width: calc(100% - 60px);
+}
+.chat-content {
+    display: flex;
+    flex-direction: column;
+}
+.chat-sender-name {
+    font-size: 0.8em;
+    color: #333;
+    font-weight: bold;
+}
+.chat-message {
+    background-color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+.chat-at {
+    margin-top: 5px;
+    font-size: 10px;
+    color: #999;
+}
+.chat-input {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+.chat-input textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    height: 50px;
+    resize: none;
+}
+.chat-toolbar {
+    text-align: right;
+    background-color: #fff;
+}
+.chat-username {
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+    background-color: #f6f6f6;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 999;
+}
+.chat-username input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+.chat-username button {
+    width: 100%;
+}
