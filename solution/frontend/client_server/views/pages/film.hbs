@@ -123,23 +123,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-12">
-                    <h3>Reviews</h3>
-                    {{#each reviews}}
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ this.title }}</h5>
-                            <p class="card-text">{{ this.content }}</p>
-                            <p class="card-text"><small class="text-muted">Posted by {{ this.author }}</small></p>
-                        </div>
-                    </div>
-                    {{/each}}
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addReviewModal">
-                        Add Review
-                    </button>
-                </div>
-            </div>
             <!-- New Oscars Section -->
             <div class="row mt-4">
                 <div class="col-12">
@@ -164,6 +147,24 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h3>Reviews</h3>
+                    {{#each reviews}}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ this.title }}</h5>
+                            <p class="card-text">{{ this.content }}</p>
+                            <p class="card-text"><small class="text-muted">Posted by {{ this.author }}</small></p>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addReviewModal">
+                        Add Review
+                    </button>
                 </div>
             </div>
         </div>
