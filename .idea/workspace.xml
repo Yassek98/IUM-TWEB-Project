@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03d7e159-5401-4aa3-97f0-0480df8c1b4a" name="Changes" comment="rimossi file troppo grandi">
-      <change beforePath="$PROJECT_DIR$/solution/notebooks/explorations/data_exploration.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/solution/notebooks/explorations/data_exploration.ipynb" afterDir="false" />
+    <list default="true" id="b36b1d9d-881b-4797-a065-20889ea2187d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/solution/notebooks/visualisation/data_visualisation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/solution/notebooks/visualisation/data_visualisation.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Visualizzazione" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,155 +23,57 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;c-sam2&quot;
+    &quot;assignee&quot;: &quot;V3R0N1C4&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Yassek98/IUM-TWEB-Project.git&quot;,
-    &quot;accountId&quot;: &quot;9ebfc822-6760-4e5f-96b4-307ff19ff5a4&quot;
+    &quot;accountId&quot;: &quot;5f4b3f12-6abd-4e58-b139-8b4b3b20620c&quot;
   }
 }</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2rWT4N6cu4x0Tuf9Khpa70B8sfU" />
+  <component name="ProjectId" id="2sPhM62bwgWVlaBOhXy5SDNJkQR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;Node.js.www.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Visualizzazione&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/fede/Desktop/Progetto TWEB/solution/backend/springboot_server&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/veronicabosso/PycharmProjects/IUM-TWEB-Project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2724138&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="www" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/solution/backend/express_server/bin/www" working-dir="$PROJECT_DIR$/solution/backend/express_server/bin">
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Node.js.www" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
-        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-WS-242.21829.149" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="03d7e159-5401-4aa3-97f0-0480df8c1b4a" name="Changes" comment="" />
-      <created>1710430496149</created>
+      <changelist id="b36b1d9d-881b-4797-a065-20889ea2187d" name="Changes" comment="" />
+      <created>1738363065136</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1710430496149</updated>
-      <workItem from="1736673641052" duration="105000" />
-      <workItem from="1736673980078" duration="686000" />
-      <workItem from="1736674847730" duration="79000" />
-      <workItem from="1736675075647" duration="98000" />
-      <workItem from="1736675822936" duration="10000" />
-      <workItem from="1736694352497" duration="9307000" />
-      <workItem from="1736789336603" duration="4183000" />
-      <workItem from="1736798352323" duration="4278000" />
-      <workItem from="1736803209411" duration="171000" />
-      <workItem from="1736851879486" duration="443000" />
-      <workItem from="1736852338201" duration="1090000" />
-      <workItem from="1736860163968" duration="806000" />
-      <workItem from="1736955088545" duration="752000" />
-      <workItem from="1736956111626" duration="1763000" />
-      <workItem from="1736977046044" duration="74000" />
-      <workItem from="1737037003892" duration="769000" />
-      <workItem from="1737040101115" duration="32000" />
-      <workItem from="1737040216260" duration="135000" />
-      <workItem from="1737040371301" duration="9000" />
-      <workItem from="1737040826469" duration="253000" />
-      <workItem from="1737048655239" duration="177000" />
-      <workItem from="1737049501394" duration="1140000" />
-      <workItem from="1737050946964" duration="652000" />
-      <workItem from="1737056984120" duration="1259000" />
-      <workItem from="1737062112249" duration="1765000" />
-      <workItem from="1737120525204" duration="7000" />
-      <workItem from="1737121576198" duration="14000" />
-      <workItem from="1737121885253" duration="801000" />
-      <workItem from="1737122734997" duration="204000" />
-      <workItem from="1737122959598" duration="391000" />
-      <workItem from="1737123376751" duration="128000" />
-      <workItem from="1737131019637" duration="603000" />
-      <workItem from="1737626302592" duration="950000" />
-      <workItem from="1737627382717" duration="2082000" />
-      <workItem from="1737629938726" duration="1017000" />
-      <workItem from="1737630993104" duration="750000" />
-      <workItem from="1737636917561" duration="370000" />
-      <workItem from="1737637305280" duration="40000" />
-      <workItem from="1737637363572" duration="6301000" />
-      <workItem from="1737646974403" duration="2215000" />
-      <workItem from="1737993860292" duration="172000" />
-      <workItem from="1738010732422" duration="3935000" />
-      <workItem from="1738077240714" duration="1731000" />
-      <workItem from="1738236689212" duration="63000" />
-      <workItem from="1738346534733" duration="1096000" />
-      <workItem from="1738367852188" duration="214000" />
-      <workItem from="1738368114479" duration="485000" />
-      <workItem from="1738368633784" duration="9484000" />
-      <workItem from="1738404748206" duration="4234000" />
+      <updated>1738363065136</updated>
+      <workItem from="1738363066192" duration="31000" />
+      <workItem from="1738363117313" duration="829000" />
+      <workItem from="1738364583078" duration="929000" />
     </task>
-    <task id="LOCAL-00001" summary="Data Exploration almost completed">
-      <option name="closed" value="true" />
-      <created>1736703856496</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1736703856496</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Added cleaning of genres,themes,languages,studios">
-      <option name="closed" value="true" />
-      <created>1737644925429</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1737644925429</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added Mongo and Sql database's dump">
-      <option name="closed" value="true" />
-      <created>1737647197898</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1737647197898</updated>
-    </task>
-    <task id="LOCAL-00004" summary="rimossi file troppo grandi">
-      <option name="closed" value="true" />
-      <created>1737650659296</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1737650659296</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,17 +87,12 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="main" />
+                  <option value="origin/Visualizzazione" />
                 </option>
               </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="origin/main" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="HEAD" />
                 </option>
               </RecentGroup>
             </list>
@@ -214,7 +110,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="origin/Visualizzazione" />
                       </list>
                     </value>
                   </entry>
@@ -225,12 +121,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Data Exploration almost completed" />
-    <MESSAGE value="Added cleaning of genres,themes,languages,studios" />
-    <MESSAGE value="Added Mongo and Sql database's dump" />
-    <MESSAGE value="rimossi file troppo grandi" />
-    <option name="LAST_COMMIT_MESSAGE" value="rimossi file troppo grandi" />
   </component>
 </project>
