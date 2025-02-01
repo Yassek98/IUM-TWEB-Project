@@ -106,10 +106,6 @@ router.get('/film/:movieId', function(req, res, next) {
   res.render('pages/film', { movie, reviews, cast, crew, oscars });
 });
 
-// Aggiungi route per la pagina dell'Attore
-router.get('/actor/:actorId', function(req, res, next) {
-  res.render('actor', { actorId: req.params.actorId }); // Passa actorId alla vista dell'attore
-});
 
 // Aggiungi route per la pagina delle statistiche
 router.get('/statistics', function(req, res, next) {

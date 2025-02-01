@@ -38,17 +38,11 @@ document.getElementById('search-form').addEventListener('submit', function(event
             resultsContainer.innerHTML = ''; // Pulisce i risultati precedenti
 
             if (results.length > 0) {
-                results.forEach(item => {
+                results.forEach(movie => {
                     const resultLink = document.createElement('a');
                     resultLink.classList.add("list-group-item", "list-group-item-action");
-
-                    if (item.type === 'movie') {
-                        resultLink.href = `/film/${item.id}`; // Film usa ID
-                    } else if (item.type === 'actor') {
-                        resultLink.href = `/actor/${item.id}`; // Ora gli attori usano ID, non nome
-                    }
-
-                    resultLink.textContent = item.name;
+                    resultLink.href = `/film/${movie.id}`;
+                    resultLink.textContent = movie.name;
                     resultsContainer.appendChild(resultLink);
                 });
 
