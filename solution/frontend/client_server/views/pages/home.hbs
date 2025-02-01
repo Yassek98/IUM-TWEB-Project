@@ -29,32 +29,45 @@
             </div>
         </div>
     </div>
-
-    <div class="row g-4">
-        {{#each featuredMovies}}
-        <div class="col-md-4 fade-in">
-            <div class="card h-100">
-                <div class="movie-poster">
-                    <img src="{{this.poster}}" class="card-img-top" alt="{{this.title}}">
-                    <span class="rating-badge">
-                        <i class="bi bi-star-fill me-1"></i>
-                        {{this.rating}}
-                    </span>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{this.title}}</h5>
-                    <p class="card-text text-muted">
-                        <i class="bi bi-calendar3 me-2"></i>2024
-                        <span class="mx-2">•</span>
-                        <i class="bi bi-clock me-2"></i>120 min
-                    </p>
-                    <a href="/movie/{{this.id}}" class="btn btn-primary w-100">View Details</a>
-                </div>
-            </div>
+    <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="true">
+        <div class="carousel-inner">
+            {{#each groupedFeaturedMovies}}
+              <div class="carousel-item {{#if @first}}active{{/if}}">
+                  <div class="row">
+                      {{#each this}}
+                          <div class="col-md-3 fade-in">
+                              <div class="card card-custom mx-auto">
+                                  <div class="movie-poster position-relative">
+                                      <img src="{{this.poster}}" class="card-img-top fixed-img" alt="{{this.title}}">
+                                      <div class="fade-overlay"></div>
+                                      <span class="rating-badge">
+                                          <i class="bi bi-star-fill me-1"></i>{{this.rating}}
+                                      </span>
+                                  </div>
+                                  <div class="card-body">
+                                      <h5 class="card-title">{{this.title}}</h5>
+                                      <p class="card-text text-muted">
+                                          <i class="bi bi-calendar3 me-2"></i>{{this.year}}
+                                          <i class="bi bi-clock me-2"></i>{{this.duration}} min
+                                      </p>
+                                      <a href="/film/{{this.id}}" class="btn btn-primary w-100">View Details</a>
+                                  </div>
+                              </div>
+                          </div>
+                      {{/each}}
+                  </div>
+              </div>
+            {{/each}}
         </div>
-        {{/each}}
+        <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-
     <div class="row mt-5 g-4">
         <div class="col-md-4">
             <div class="card bg-primary text-white">

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - Movie Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/film.svg">
+</head>
+<body class="min-vh-100 d-flex flex-column vsc-initialized">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <i class="bi bi-film me-2"></i>
+                Movie Platform
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-fill me-1"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/stats">
+                            <i class="bi bi-graph-up me-1"></i>
+                            Statistics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/community">
+                            <i class="bi bi-people-fill me-1"></i>
+                            Community
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="/search" method="GET">
+                    <div class="input-group">
+                        <input class="form-control" type="search" name="query" placeholder="Search movies..." 
+                               aria-label="Search" required>
+                        <button class="btn btn-outline-light" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div style="margin-top: 76px;"></div>
+    <main class="flex-grow-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{ movie.poster }}" class="img-fluid rounded" alt="{{ movie.title }} poster">
+                </div>
+                <div class="col-md-8">
+                    <h1>{{ movie.title }}</h1>
+                    <p class="lead">{{ movie.tagline }}</p>
+                    <div class="mb-3">
+                        <span class="badge bg-primary me-2">Rating: {{ movie.rating }}</span>
+                        <span class="badge bg-secondary me-2">{{ movie.year }}</span>
+                        <span class="badge bg-info">{{ movie.duration }} min</span>
+                    </div>
+                    <h3>Overview</h3>
+                    <p>{{ movie.description }}</p>
+                    <h3>Cast</h3>
+                    <div class="row">
+                        {{#each cast}}
+                        <div class="col-md-3 mb-3">
+                            <div class="card">
+                                <img src="{{ this.image }}" class="card-img-top" alt="{{ this.name }}">
+                                <div class="card-body">
+                                    <h6 class="card-title">{{ this.name }}</h6>
+                                    <p class="card-text small">{{ this.character }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <!-- New Crew Section -->
+                    <h3>Crew</h3>
+                    <div class="row">
+                        {{#each crew}}
+                        <div class="col-md-3 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">{{ this.name }}</h6>
+                                    <p class="card-text small">{{ this.job }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h3>Reviews</h3>
+                    {{#each reviews}}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ this.title }}</h5>
+                            <p class="card-text">{{ this.content }}</p>
+                            <p class="card-text"><small class="text-muted">Posted by {{ this.author }}</small></p>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addReviewModal">
+                        Add Review
+                    </button>
+                </div>
+            </div>
+            <!-- New Oscars Section -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h3>Oscar Awards</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Year</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each oscars}}
+                                <tr>
+                                    <td>{{ this.category }}</td>
+                                    <td>{{ this.year }}</td>
+                                    <td>{{ this.result }}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Review Modal -->
+        <div class="modal fade" id="addReviewModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Review</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="reviewForm">
+                            <div class="mb-3">
+                                <label class="form-label">Rating</label>
+                                <select class="form-select" required>
+                                    <option value="5">5 - Excellent</option>
+                                    <option value="4">4 - Very Good</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="2">2 - Fair</option>
+                                    <option value="1">1 - Poor</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Review</label>
+                                <textarea class="form-control" rows="3" required></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit Review</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <!-- ...existing footer content... -->
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Movie Platform</h5>
+                    <p class="text-muted">Discover, rate, and discuss your favorite movies with our growing community of film enthusiasts.</p>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="mb-3">Explore</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="/stats" class="text-muted text-decoration-none">Statistics</a></li>
+                        <li><a href="/community" class="text-muted text-decoration-none">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="mb-3">Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/movies/action" class="text-muted text-decoration-none">Action</a></li>
+                        <li><a href="/movies/drama" class="text-muted text-decoration-none">Drama</a></li>
+                        <li><a href="/movies/comedy" class="text-muted text-decoration-none">Comedy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email for newsletter">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-muted text-decoration-none"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-muted text-decoration-none"><i class="bi bi-twitter fs-5"></i></a>
+                        <a href="#" class="text-muted text-decoration-none"><i class="bi bi-instagram fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-muted">© 2024 Movie Platform. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a href="/privacy" class="text-muted text-decoration-none">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <span class="text-muted">•</span>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="/terms" class="text-muted text-decoration-none">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {{> chat movieId=movie.id }}
+</body>
+</html>
