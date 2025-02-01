@@ -116,4 +116,21 @@ router.get('/statistics', function(req, res, next) {
   res.render('pages/statistics', { title: 'Statistics' });
 });
 
+router.get('/api/search', async (req, res) => {
+  const query = req.query.query;
+  if (!query) {
+    return res.json([]); // Restituisci un array vuoto se la query è vuota
+  }
+
+  try {
+    // Invia la richiesta al server Spring Boot
+    const response = await axios.get(`http://localhost:8080/api/search?query=${encodeURIComponent(query)}`);
+    // Invia i dati ricevuti al client
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error during search:', error);
+    res.status(500).json({ error: 'Error during search' });
+  }
+});
+
 module.exports = router;

@@ -41,6 +41,6 @@ public class MovieService {
      * @return a list of movies with names containing the specified string
      */
     public List<Movie> searchMovies(String name) {
-        return movieRepo.findByName(name);
+        return movieRepo.findByNameIgnoreCaseContaining(name);
     }
 }

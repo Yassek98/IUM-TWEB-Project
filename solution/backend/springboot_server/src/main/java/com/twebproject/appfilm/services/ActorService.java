@@ -46,6 +46,17 @@ public class ActorService {
         return actorRepo.findByNameIgnoreCaseContaining(name);
     }
 
+
+    /**
+     * Searches for distinct actors by name.
+     *
+     * @param name the name to search for
+     * @return a list of distinct actors with names containing the specified string
+     */
+    public List<Actor> searchUniqueActorsByName(String name) {
+        return actorRepo.findUniqueActorsByName(name);
+    }
+
     /**
      * Retrieves an actor by film ID, actor name, and role.
      *

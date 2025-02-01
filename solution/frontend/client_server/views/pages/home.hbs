@@ -2,16 +2,18 @@
     <div class="container text-center">
         <h1 class="display-3 mb-4 text-white">Discover Your Next Favorite Movie</h1>
         <p class="lead text-white mb-5">Explore thousands of movies, share your thoughts, and connect with other movie enthusiasts</p>
-        
-        <form action="/search" method="GET" class="col-md-8 mx-auto search-form">
+
+        <form id="search-form" action="/search" method="GET" class="col-md-8 mx-auto search-form">
             <div class="input-group input-group-lg">
-                <input type="search" name="query" class="form-control" placeholder="Search movies or actors..." required aria-label="Search movies">
-                <button class="btn btn-primary px-4" type="submit">
+                <input type="search" id="search-input" name="query" class="form-control" placeholder="Search movies or actors..." required aria-label="Search movies">
+                <button type="submit" class="btn btn-primary px-4">
                     <i class="bi bi-search me-2"></i>
                     Search
                 </button>
             </div>
         </form>
+        <!-- risultati della ricerca -->
+        <div id="search-results" class="list-group position-absolute w-100 bg-white border rounded shadow" style="display: none; max-height: 300px; overflow-y: auto; z-index: 1000;"></div>
     </div>
 </div>
 

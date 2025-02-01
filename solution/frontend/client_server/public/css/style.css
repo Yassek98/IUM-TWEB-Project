@@ -225,3 +225,26 @@
     width: 5%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+#search-results {
+    position: absolute;
+    top: 100%; /* Posiziona sotto la barra di ricerca */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Assicura che appaia sopra altri contenuti */
+    background: white;
+    max-height: 300px; /* Limita l'altezza e rendi scrollabile */
+    overflow-y: auto; /* Permette lo scroll verticale se necessario */
+    border: 1px solid #ccc;
+    border-radius: 0 0 4px 4px; /* Arrotonda gli angoli inferiori */
+    display: none; /* Nasconde il menù quando non è in uso */
+}
+#search-results a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #eee; /* Separa visivamente gli elementi */
+    color: black; /* Colore del testo */
+    text-decoration: none; /* Rimuove sottolineature dai link */
+}
+#search-results a:hover {
+    background-color: #f8f8f8; /* Colore di sfondo al hover */
+}

@@ -25,3 +25,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.getElementById('search-form').addEventListener('submit', function(event) {
+    event.preventDefault();  // Previene il comportamento di default del form
+    const query = document.getElementById('search-input').value;
+    console.log(query);
+
+    axios.get(`/api/search?query=${encodeURIComponent(query)}`)
+        .then(response => {
+            const results = response.data;
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = ''; // Pulisce i risultati precedenti
+
+            if (results.length > 0) {
+                results.forEach(item => {
+                    const resultLink = document.createElement('a');
+                    resultLink.classList.add("list-group-item", "list-group-item-action");
+
+                    if (item.type === 'movie') {
+                        resultLink.href = `/film/${item.id}`; // Film usa ID
+                    } else if (item.type === 'actor') {
+                        resultLink.href = `/actor/${item.id}`; // Ora gli attori usano ID, non nome
+                    }
+
+                    resultLink.textContent = item.name;
+                    resultsContainer.appendChild(resultLink);
+                });
+
+                resultsContainer.style.display = 'block'; // Mostra il menu a tendina
+            } else {
+                resultsContainer.style.display = 'none'; // Nasconde il menu se non ci sono risultati
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching search results:', error);
+            resultsContainer.style.display = 'none';
+        });
+});

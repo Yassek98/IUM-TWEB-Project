@@ -21,7 +21,7 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
      * @return a list of movies with names containing the specified string
      */
     @Query("SELECT m FROM Movie m WHERE lower(m.name) LIKE lower(concat('%', :name, '%'))")
-    List<Movie> findByName(String name);
+    List<Movie> findByNameIgnoreCaseContaining(String name);
 
     /**
      * Finds a movie by its ID.

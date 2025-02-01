@@ -39,4 +39,8 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
      * @return a list of Actor entities with roles containing the specified string
      */
     List<Actor> findByRole(String role);
+
+    @Query("SELECT new Actor(MIN(a.id), a.name) FROM Actor a WHERE lower(a.name) LIKE lower(concat('%', :name, '%')) GROUP BY a.name")
+    List<Actor> findUniqueActorsByName(@Param("name") String name);
+
 }
