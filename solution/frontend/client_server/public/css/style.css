@@ -199,3 +199,29 @@
     height: 200px; /* Ensure uniform size */
     overflow: hidden;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+    width: 30px;
+    height: 30px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+}

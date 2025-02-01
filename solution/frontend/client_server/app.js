@@ -10,7 +10,16 @@ const app = express();
 app.engine('hbs', exphbs.engine({ 
     extname: '.hbs',
     partialsDir: path.join(__dirname, 'views', 'partials'),
-    layoutsDir: path.join(__dirname, 'views', 'layouts')
+    layoutsDir: path.join(__dirname, 'views', 'layouts'),
+    helpers: {
+        group: function (array, groupSize) {
+            const groups = [];
+            for (let i = 0; i < array.length; i += groupSize) {
+                groups.push(array.slice(i, i + groupSize));
+            }
+            return groups;
+        }
+    }
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));

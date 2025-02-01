@@ -71,17 +71,31 @@ router.get('/film/:movieId', function(req, res, next) {
     { title: 'Amazing!', content: 'This movie was absolutely amazing!', author: 'John Doe' },
     { title: 'Loved it', content: 'I loved every moment of this movie.', author: 'Jane Smith' }
   ];
-  // Passa dei dati fittizi per il cast
+  // Passa dei dati fittizi per il cast (senza immagini)
   const cast = [
-    { name: 'Leonardo DiCaprio', image: '/images/image 7.jpg', character: 'Cobb' },
-    { name: 'Joseph Gordon-Levitt', image: '/images/image 11.jpg', character: 'Arthur' },
-    { name: 'Elliot Page', image: '/images/image 9.jpg', character: 'Ariadne' }
+    { name: 'Leonardo DiCaprio', character: 'Cobb' },
+    { name: 'Joseph Gordon-Levitt', character: 'Arthur' },
+    { name: 'Elliot Page', character: 'Ariadne' },
+    { name: 'Tom Hardy', character: 'Eames' },
+    { name: 'Ken Watanabe', character: 'Saito' },
+    { name: 'Dileep Rao', character: 'Yusuf' },
+    { name: 'Cillian Murphy', character: 'Robert Fischer' },
+    { name: 'Marion Cotillard', character: 'Mal' },
+    { name: 'Michael Caine', character: 'Miles' },
+    { name: 'Pete Postlethwaite', character: 'Maurice Fischer' }
   ];
   // Aggiungi dati fittizi per la crew (senza immagini)
   const crew = [
     { name: 'Christopher Nolan', job: 'Director' },
     { name: 'Hans Zimmer', job: 'Music Composer' },
-    { name: 'Lee Smith', job: 'Editor' }
+    { name: 'Lee Smith', job: 'Editor' },
+    { name: 'Wally Pfister', job: 'Cinematographer' },
+    { name: 'Emma Thomas', job: 'Producer' },
+    { name: 'Jordan Goldberg', job: 'Executive Producer' },
+    { name: 'Lynda Obst', job: 'Producer' },
+    { name: 'Chris Brigham', job: 'Executive Producer' },
+    { name: 'Thomas Tull', job: 'Executive Producer' },
+    { name: 'Zakaria Alaoui', job: 'Line Producer' }
   ];
   // Aggiungi dati fittizi per gli Oscar
   const oscars = [
@@ -95,6 +109,11 @@ router.get('/film/:movieId', function(req, res, next) {
 // Aggiungi route per la pagina dell'Attore
 router.get('/actor/:actorId', function(req, res, next) {
   res.render('actor', { actorId: req.params.actorId }); // Passa actorId alla vista dell'attore
+});
+
+// Aggiungi route per la pagina delle statistiche
+router.get('/statistics', function(req, res, next) {
+  res.render('pages/statistics', { title: 'Statistics' });
 });
 
 module.exports = router;
